@@ -1,0 +1,17 @@
+
+az login
+az account set -s $subscriptionName
+$region = canadaeast
+$resourceGroup = aks-demoapp-rg
+
+
+az group create -l $region -n $resourceGroup
+
+
+az aks create -g $resourceGroup -n aks-demoapp-cluster --node-count 2
+
+az aks create --generate-ssh-keys -g $resourceGroup -n aks- `
+              --node-count 4 --node-vm-size Standard_DS3_v2
+
+az aks list -o table
+
