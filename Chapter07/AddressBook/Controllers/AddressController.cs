@@ -10,13 +10,17 @@ namespace AddressBook.Controllers;
 [Route("[controller]")]
 public class AddressBookController : ControllerBase
 {
+    private readonly AddressBookDbContext _addressBookDbContext;
+
+    public AddressBookController(AddressBookDbContext addressBookDbContext)
+    {
+        _addressBookDbContext = addressBookDbContext;
+    }
+
     [HttpGet]
     public IActionResult Get()
     {
-        var addressBookDbContextOptions = new DbContextOptionsBuilder<AddressBookDbContext>()
-        .UseSqlServer("<your-azure-database-connection-string>").Options;
-        using var addressBookDbContext = new AddressBookDbContext(addressBookDbContextOptions);
-        var addresses = addressBookDbContext.Addresses.ToList();
+        var addresses = _addressBookDbContext.Addresses.ToList();
         return Ok(addresses);
     }
 

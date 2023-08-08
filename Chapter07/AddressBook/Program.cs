@@ -1,4 +1,12 @@
+using AddressBook.Data;
+
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Add Database Context.
+builder.Services.AddDbContext<AddressBookDbContext>(options =>
+    options.UseSqlServer("<your Azure Sql server connection string>"));
 
 // Add services to the container.
 
