@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add Database Context.
 builder.Services.AddDbContext<AddressBookDbContext>(options =>
-    options.UseSqlServer("<your Azure Sql server connection string>"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AddressBookDb")));
 
 // Add services to the container.
 
