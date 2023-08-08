@@ -1,0 +1,7 @@
+CREATE TABLE Addresses
+(
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    [Name] NVARCHAR(MAX),
+    [Email] NVARCHAR(MAX),
+    [CreatedOn] DATETIME DEFAULT GETUTCDATE()
+)

@@ -1,6 +1,8 @@
+using AddressBook.Data;
 using AddressBook.Models;
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AddressBook.Controllers;
 
@@ -11,8 +13,13 @@ public class AddressBookController : ControllerBase
     [HttpGet]
     public IActionResult Get()
     {
-        throw new NotImplementedException();
+        var addressBookDbContextOptions = new DbContextOptionsBuilder<AddressBookDbContext>()
+        .UseSqlServer("<your-azure-database-connection-string>").Options;
+        using var addressBookDbContext = new AddressBookDbContext(addressBookDbContextOptions);
+        var addresses = addressBookDbContext.Addresses.ToList();
+        return Ok(addresses);
     }
+
     [HttpGet("{id}")]
     public IActionResult GetById()
     {
