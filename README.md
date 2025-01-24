@@ -1,6 +1,3 @@
-
-<b><p align='center'>[![Packt Sale](https://static.packt-cdn.com/assets/images/image.jpeg)](https://www.packtpub.com/)</p></b>Get this book on sale at [Packt](https://www.packtpub.com/).
-
 # A Developer's Guide to .NET in Azure
 
 <a href="https://www.packtpub.com/product/a-developers-guide-to-net-in-azure/9781837633012"><img src="https://m.media-amazon.com/images/I/81NYbUNw8vL._SY385_.jpg" alt="Book Name" height="256px" align="right"></a>
